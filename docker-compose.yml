@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  georp-bot:
+    build: .
+    container_name: georp-telegram-bot
+    environment:
+      TelegramToken: ${TELEGRAM_TOKEN:-YOUR_TOKEN_HERE}
+      OpenAIApiKey: ${OPENAI_API_KEY:-}
+      AdminIds__0: ${ADMIN_ID:-123456789}
+      DatabasePath: /app/data/georp.db
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

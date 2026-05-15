@@ -1,0 +1,11 @@
+bin/
+obj/
+*.db
+*.db-journal
+*.log
+selfrepair.log
+publish/
+.vs/
+.vscode/
+*.user
+appsettings.local.json
